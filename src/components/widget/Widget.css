@@ -1,0 +1,71 @@
+.main {
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 1%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-size: cover;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  font-size: 72px;
+  text-transform: capitalize;
+}
+
+.location {
+  height: 110px;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  text-shadow: 0 1px 0 #333, 0 2px 0 #444, 0 3px 0 #555, 0 4px 0 #666,
+    0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.country {
+  font-size: 20px;
+  font-style: italic;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.temperature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.4);
+}
+.degree-toggle {
+  margin-left: 30px;
+}
+
+.condition {
+  /* display: flex;
+  flex-direction: column; */
+  margin-top: 20px;
+  font-size: 42px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.condition-icon {
+  margin-top: -39px;
+}
+
+.no-bottom-border-radius fieldset {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
