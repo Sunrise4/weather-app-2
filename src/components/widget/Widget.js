@@ -12,7 +12,6 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import { width } from "@mui/system";
 
 export default function Widget() {
   const [city, setCity] = useState("");
@@ -57,17 +56,18 @@ export default function Widget() {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${WEATHER_API_KEY}`
       );
-      const data = await response.json();
+      if (response.ok) {
+        const data = await response.json();
 
-      convertTempToF(data.main.temp);
-      convertTempToC(data.main.temp);
-      setLocation(data.name);
-      setCountry(data.sys.country);
-      setCondition(data.weather[0].description);
-      setIcon(data.weather[0].icon);
-      console.log(data);
+        convertTempToF(data.main.temp);
+        convertTempToC(data.main.temp);
+        setLocation(data.name);
+        setCountry(data.sys.country);
+        setCondition(data.weather[0].description);
+        setIcon(data.weather[0].icon);
+      }
     } catch (error) {
-      console.log(error);
+      console.log("hi");
     }
   };
 
@@ -75,11 +75,11 @@ export default function Widget() {
     <Box
       className="main"
       style={
-        !temperatureC
+        !temperatureC && temperatureC !== 0
           ? { backgroundColor: "#f4f4f4" }
-          : temperatureC < 0
+          : temperatureC <= 0
           ? { backgroundImage: `url(${cold})` }
-          : temperatureC < 20
+          : temperatureC <= 20
           ? {
               backgroundImage: `url(${medium})`,
             }
@@ -94,6 +94,11 @@ export default function Widget() {
           label="City"
           variant="outlined"
           onChange={updateWeatherInput}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              getWeather();
+            }
+          }}
         />
       </Box>
       <Button
